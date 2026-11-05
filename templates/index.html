@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>키오스크 주문</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🍽️ 어서오세요</div>
+    <div class="order-type">
+      <button class="order-type-btn active" data-type="takeout">포장</button>
+      <button class="order-type-btn" data-type="dine_in">매장</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="menu-area">
+      <nav id="category-tabs" class="category-tabs"></nav>
+      <div id="menu-grid" class="menu-grid"></div>
+    </section>
+
+    <aside class="cart-panel">
+      <h2>장바구니</h2>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>총 결제금액</span>
+          <strong id="cart-total-price">0원</strong>
+        </div>
+        <button id="clear-cart-btn" class="secondary-btn">비우기</button>
+        <button id="checkout-btn" class="checkout-btn" disabled>결제하기</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 옵션 선택 모달 -->
+  <div id="option-modal" class="modal-overlay hidden">
+    <div class="modal">
+      <h3 id="option-modal-title"></h3>
+      <p id="option-modal-desc" class="modal-desc"></p>
+      <div id="option-modal-groups"></div>
+      <div class="qty-row">
+        <span>수량</span>
+        <div class="qty-control">
+          <button id="qty-minus">-</button>
+          <span id="qty-value">1</span>
+          <button id="qty-plus">+</button>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="option-cancel-btn" class="secondary-btn">취소</button>
+        <button id="option-add-btn" class="checkout-btn">담기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 주문 완료 모달 -->
+  <div id="complete-modal" class="modal-overlay hidden">
+    <div class="modal complete-modal">
+      <div class="complete-icon">✅</div>
+      <h3>주문이 완료되었습니다</h3>
+      <p>대기번호</p>
+      <div id="pickup-number" class="pickup-number"></div>
+      <button id="new-order-btn" class="checkout-btn">새 주문 시작</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

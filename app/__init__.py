@@ -1,0 +1,1 @@
+"""Kiosk FastAPI application package."""
